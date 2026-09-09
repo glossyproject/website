@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef, useState } from "react"
+import { useState, type ReactElement } from "react"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
 
@@ -21,7 +21,7 @@ const banners = [
 export default function HeroCarousel() {
   const [paused, setPaused] = useState(false)
 
-  const autoplay = useRef(
+  const [autoplay] = useState(() =>
     Autoplay({
       delay: 4000,
       stopOnInteraction: false,
@@ -31,9 +31,9 @@ export default function HeroCarousel() {
 
   function toggleAutoplay() {
     if (paused) {
-      autoplay.current.play()
+      autoplay.play()
     } else {
-      autoplay.current.stop()
+      autoplay.stop()
     }
 
     setPaused(!paused)
@@ -44,7 +44,7 @@ export default function HeroCarousel() {
       <div className="mx-auto w-full max-w-[1280px] px-0 md:px-0 lg:px-0">
         <Carousel
           opts={{ align: "start", loop: true }}
-          plugins={[autoplay.current]}
+          plugins={[autoplay]}
           className="relative w-full"
         >
           <CarouselContent className="ml-0">
@@ -88,7 +88,7 @@ export default function HeroCarousel() {
   )
 }
 
-export function HeroCarouselWithText(): JSX.Element {
+export function HeroCarouselWithText(): ReactElement {
   return (
     <section className="w-full bg-white py-10">
       <div className="container mx-auto flex w-full flex-col items-center gap-6 lg:flex-row lg:justify-between">
