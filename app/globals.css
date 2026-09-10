@@ -865,7 +865,7 @@ Uncomment to import Google fonts if you want to use them in your project.
     h1,
     .hero-title {
         font-family: "Anton", sans-serif;
-        font-style: italic;
+        font-style: normal;
         font-weight: 400;
         text-transform: uppercase;
         font-size: clamp(2.75rem, 7vw, 6rem);
