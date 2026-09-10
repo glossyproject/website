@@ -18,7 +18,10 @@ export default function Page() {
         <Features />
         <CaseStudies />
         <TestimonialSection />
-        <Cta />
+        <Cta
+          heading="Rawat Mobil Anda dengan Standar Terbaik"
+          description="Percayakan perawatan, perbaikan, dan penyempurnaan kendaraan Anda kepada Glossy Auto Group."
+        />
         <Footer />
    
       </div>
