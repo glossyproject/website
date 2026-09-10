@@ -1,9 +1,16 @@
 "use client";
 
-import { Menu, X } from "lucide-react";
-import React, { useEffect, useRef, useState } from "react";
+import { Menu, Moon, Sun, X } from "lucide-react";
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from "react";
 
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import { useTheme } from "next-themes";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -102,6 +109,7 @@ const Navbar17 = () => {
         <MobileNav activeItem={activeItem} setActiveItem={setActiveItem} />
 
         <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
           <Button
             variant="outline"
             size="sm"
@@ -132,6 +140,30 @@ const AnimatedHamburger = ({ isOpen }: { isOpen: boolean }) => {
           }`}
         />
       </div>
+    </div>
+  );
+};
+
+const ThemeToggle = () => {
+  const { resolvedTheme, setTheme } = useTheme();
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
+
+  const isDark = mounted && resolvedTheme === "dark";
+
+  return (
+    <div className="flex items-center gap-2" title="Ganti tema">
+      <Sun aria-hidden="true" className="size-4 text-muted-foreground" />
+      <Switch
+        checked={isDark}
+        disabled={!mounted}
+        onCheckedChange={(checked) => setTheme(checked ? "dark" : "light")}
+        aria-label="Ganti tema terang atau gelap"
+      />
+      <Moon aria-hidden="true" className="size-4 text-muted-foreground" />
     </div>
   );
 };
@@ -175,6 +207,9 @@ const MobileNav = ({
               </li>
             ))}
             <li className="flex flex-col px-7 py-2">
+              <div className="mb-4 flex justify-center">
+                <ThemeToggle />
+              </div>
               <Button variant="outline">Sign Up</Button>
             </li>
           </ul>

@@ -31,8 +31,10 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, anton.variable)}
     >
       <body>
-        <Navbar17 />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Navbar17 />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
