@@ -20,7 +20,7 @@ const Cta3 = () => {
               HUBUNGI KAMI
             </h1>
             <p className="mx-auto max-w-3xl text-balance text-xl font-medium">
-              Pilih cabang terdekat untuk konsultasi layanan
+              Pilih cabang terdekat untuk konsultasi layanan atau jadwalkan kunjungan ke bengkel kami. Tim kami siap membantu Anda dengan layanan terbaik.
             </p>
             </div>
           </div>

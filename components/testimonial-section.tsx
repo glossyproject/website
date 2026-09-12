@@ -16,31 +16,31 @@ const heading = Oswald({
   weight: "600",
 })
 
-// Ganti dengan ulasan asli pelanggan.
+// 
 const testimonials = [
   {
     name: "Kinan Efran Harahap",
-    service: "Exterior Detailing",
+    service: "",
     rating: 5,
     review: "Rekomendasi dari orang ke orang, pelayanan bagus dan selalu di update setiap hari.",
   },
   {
-    name: "Contoh Pelanggan 2",
-    service: "Nano Coating",
+    name: "Betta Cilincing",
+    service: "",
     rating: 5,
-    review: "Contoh ulasan pelanggan mengenai hasil nano coating.",
+    review: "Bagus banget hasil pengerjaannya, memang harga gak menghiyanati hasil. The best glossy auto. Next akan aku bawa kawanku dan keluargaku ke sini👍👍👍",
   },
   {
-    name: "Contoh Pelanggan 3",
-    service: "Interior Detailing",
+    name: "Ayu Wulan",
+    service: "",
     rating: 5,
-    review: "Contoh ulasan pelanggan mengenai kebersihan interior mobil.",
+    review: "Tambah racing mobilku variasi di bro Fariz, thank you bro Fariz 🙏🙏",
   },
   {
-    name: "Contoh Pelanggan 4",
-    service: "Repair & Repaint",
+    name: "Tata Delvili Yanti",
+    service: "",
     rating: 5,
-    review: "Contoh ulasan pelanggan mengenai perbaikan dan pengecatan.",
+    review: "pengerjaan sangat baik dan mobil aku jadi seperti baru",
   },
 ]
 
