@@ -40,7 +40,7 @@ export default function HeroCarousel() {
   }
 
   return (
-    <section aria-label="Banner Glossy Auto" className="w-full overflow-hidden bg-black">
+    <section id="hero" aria-label="Banner Glossy Auto" className="w-full overflow-hidden bg-black">
       <div className="mx-auto w-full max-w-[1280px] px-0 md:px-0 lg:px-0">
         <Carousel
           opts={{ align: "start", loop: true }}

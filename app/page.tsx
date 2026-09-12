@@ -6,6 +6,7 @@ import { Features } from "@/components/features"
 import { CaseStudies } from "@/components/case-studies"
 import { Cta } from "@/components/cta"
 import { Footer } from "@/components/footer"
+import { Cta3 } from "@/shadcnblocks-Blocks/cta/cta3"
 
 export default function Page() {
   return (
@@ -18,10 +19,7 @@ export default function Page() {
         <Features />
         <CaseStudies />
         <TestimonialSection />
-        <Cta
-          heading="Rawat Mobil Anda dengan Standar Terbaik"
-          description="Percayakan perawatan, perbaikan, dan penyempurnaan kendaraan Anda kepada Glossy Auto Group."
-        />
+        <Cta3 />
         <Footer />
    
       </div>

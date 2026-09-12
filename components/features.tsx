@@ -1,4 +1,4 @@
-const features = [
+export const features = [
   {
     id: "feature-1",
     title: "Repair & Restorasi",
@@ -39,7 +39,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-8">
+    <section id="layanan" className="py-8">
       <div className="container flex flex-col items-center gap-16 lg:px-16">
         <div className="text-center">
           <h1 className="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
@@ -53,6 +53,7 @@ const Features = () => {
           {features.map((feature) => (
             <div
               key={feature.id}
+              id={feature.id}
               className="border-border bg-accent rounded-lg border p-6 md:p-8"
             >
               <img

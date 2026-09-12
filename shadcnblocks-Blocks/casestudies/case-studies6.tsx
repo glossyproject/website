@@ -20,7 +20,7 @@ interface CaseStudiesCarouselItem {
   title: string;
   description: string;
   href: string;
-  image: string;
+  video: string;
 }
 
 interface CaseStudiesCarouselProps {
@@ -31,77 +31,79 @@ interface CaseStudiesCarouselProps {
 }
 
 interface CaseStudies6Props extends CaseStudiesCarouselProps {}
+
 type Props = Partial<CaseStudies6Props>;
 
 const defaultProps: CaseStudies6Props = {
-  title: "Case studies",
+  title: "GALERI HASIL PEKERJAAN KAMI",
   description:
-    "A horizontal carousel of customer stories with full-bleed imagery, company logos, short summaries, and links to read the full write-up.",
+    "Lihat langsung kualitas pengerjaan Glossy Auto melalui berbagai hasil perawatan, detailing, coating, hingga repaint kendaraan.",
+
   items: [
     {
-      id: "pipeline-analytics",
-      logo: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/logos/fictional-company-logo-white-1.svg",
-      logoAlt: "Northwind Analytics",
-      title: "Unified pipeline analytics in a single view",
-      description:
-        "How a revenue team unified CRM data and product telemetry to shorten sales cycles and make forecasting review meetings less painful.",
+      id: "nano-coating",
+      logo: "https://res.cloudinary.com/hnomzl4p/image/upload/v1788149523/PNG_LOGO_GLOSSY_TAMENG.png",
+      logoAlt: "Glossy Auto",
+      title: "Ceramic Coating",
+      description: "Proses ceramic coating dengan hasil glossy dan bergaransi sampai 5 tahun.",
       href: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/photos3/photo-1-3x4.jpg",
+      video:
+        "https://res.cloudinary.com/hnomzl4p/video/upload/v1789026169/snaptik_7645541765335780626_v3.mp4",
     },
     {
-      id: "launch-readiness",
-      logo: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/logos/fictional-company-logo-white-2.svg",
-      logoAlt: "Stacklane",
-      title: "Coordinating a multi-team product launch",
-      description:
-        "Design, engineering, and go-to-market aligned on one timeline with shared blocks and checklists so launch week stayed predictable.",
+     id: "biled",
+      logo: "https://res.cloudinary.com/hnomzl4p/image/upload/v1788149523/PNG_LOGO_GLOSSY_TAMENG.png",
+      logoAlt: "Glossy Auto",
+      title: "Pasang Biled",
+      description: "Pemasangan biled untuk pencahayaan yang lebih terang.",
       href: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/photos3/photo-2-3x4.jpg",
+      video:
+        "https://res.cloudinary.com/hnomzl4p/video/upload/v1789026262/snaptik_7632740852971916552_v3.mp4",
     },
     {
       id: "customer-success",
-      logo: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/logos/fictional-company-logo-white-3.svg",
-      logoAlt: "Railway Apps",
-      title: "Scaling onboarding without growing headcount",
-      description:
-        "Automated nudges and in-app guidance replaced one-off emails while support kept a clear view of who needed a human touch.",
+      logo: "https://res.cloudinary.com/hnomzl4p/image/upload/v1788149523/PNG_LOGO_GLOSSY_TAMENG.png",
+      logoAlt: "Glossy Auto",
+      title: "Interior Detailing",
+      description: "Perawatan interior kendaraan secara menyeluruh dengan hasil yang bersih dan nyaman.",
       href: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/photos3/photo-3-3x4.jpg",
+      video:
+        "https://res.cloudinary.com/hnomzl4p/video/upload/v1789026414/snaptik_7641863114178235666_v3.mp4",
     },
     {
       id: "security-review",
-      logo: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/logos/fictional-company-logo-white-4.svg",
-      logoAlt: "CipherTrust",
-      title: "Passing enterprise security review faster",
-      description:
-        "The team turned a checklist-heavy review into a tracked workflow so legal and IT could sign off without thrashing the roadmap.",
+      logo: "https://res.cloudinary.com/hnomzl4p/image/upload/v1788149523/PNG_LOGO_GLOSSY_TAMENG.png",
+      logoAlt: "Glossy Auto",
+      title: "Rush Protection",
+      description: "Finishing repaint dengan hasil presisi.",
       href: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/photos3/photo-4-3x4.jpg",
+      video:
+        "https://res.cloudinary.com/hnomzl4p/video/upload/v1789026538/snaptik_7656303579967327495_v3.mp4",
     },
     {
       id: "design-system",
-      logo: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/logos/fictional-company-logo-white-5.svg",
-      logoAlt: "Glyph Studio",
-      title: "One design system across marketing and product",
-      description:
-        "Shared tokens and documented sections cut duplicate UI work and made brand updates roll out consistently across surfaces.",
+      logo: "https://res.cloudinary.com/hnomzl4p/image/upload/v1788149523/PNG_LOGO_GLOSSY_TAMENG.png",
+      logoAlt: "Glossy Auto",
+      title: "Exterior Detailing",
+      description: "Perawatan exterior kendaraan secara menyeluruh.",
       href: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/photos3/photo-5-3x4.jpg",
+      video:
+        "https://res.cloudinary.com/hnomzl4p/video/upload/v1789026631/snaptik_7671872276832210184_v3.mp4",
     },
     {
       id: "revenue-ops",
-      logo: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/logos/fictional-company-logo-white-6.svg",
-      logoAlt: "Cedarline",
-      title: "Revenue ops that fits how teams actually work",
-      description:
-        "Forecasting and pipeline hygiene moved out of spreadsheets into one place so leadership could see risk early without extra ceremony.",
+      logo: "https://res.cloudinary.com/hnomzl4p/image/upload/v1788149523/PNG_LOGO_GLOSSY_TAMENG.png",
+      logoAlt: "Glossy Auto",
+      title: "Engine Detailing",
+      description: "Detailing area mesin dengan proses yang aman.",
       href: "#",
-      image: "https://deifkwefumgah.cloudfront.net/shadcnblocks/image-set/modern/photos3/photo-6-3x4.jpg",
+      video:
+        "https://res.cloudinary.com/hnomzl4p/video/upload/v1789026765/snaptik_7680162081164807431_v3.mp4",
     },
   ],
 };
 
-const CaseStudies6 = (props: Props) => {
+const CaseStudies = (props: Props) => {
   const { title, description, items, className } = {
     ...defaultProps,
     ...props,
@@ -113,58 +115,64 @@ const CaseStudies6 = (props: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    if (!carouselApi) {
-      return;
-    }
+    if (!carouselApi) return;
+
     const updateSelection = () => {
       setCanScrollPrev(carouselApi.canScrollPrev());
       setCanScrollNext(carouselApi.canScrollNext());
       setCurrentSlide(carouselApi.selectedScrollSnap());
     };
+
     updateSelection();
+
     carouselApi.on("select", updateSelection);
+
     return () => {
       carouselApi.off("select", updateSelection);
     };
   }, [carouselApi]);
 
   return (
-    <section className={cn("py-32", className)}>
-      <div className="container">
-        <div className="mb-6 flex items-end justify-between md:mb-9 lg:mb-10">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-3xl font-medium md:text-4xl lg:text-5xl">
+    <section className={cn("py-8", className)}>
+      <div className="container flex flex-col items-center gap-16 lg:px-16">
+        <div className="relative w-full text-center">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-4">
+            <h1 className="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
               {title}
-            </h2>
-            <p className="max-w-xl text-muted-foreground">{description}</p>
+            </h1>
+
+            <p className="mx-auto max-w-3xl text-balance text-xl font-medium">
+              {description}
+            </p>
           </div>
-          <div className="hidden shrink-0 gap-2 md:flex">
+
+          <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 shrink-0 gap-2 md:flex">
             <Button
               size="icon"
               variant="ghost"
-              onClick={() => {
-                carouselApi?.scrollPrev();
-              }}
+              onClick={() => carouselApi?.scrollPrev()}
               disabled={!canScrollPrev}
               className="disabled:pointer-events-auto"
+              aria-label="Previous slide"
             >
               <ArrowLeft className="size-5" />
             </Button>
+
             <Button
               size="icon"
               variant="ghost"
-              onClick={() => {
-                carouselApi?.scrollNext();
-              }}
+              onClick={() => carouselApi?.scrollNext()}
               disabled={!canScrollNext}
               className="disabled:pointer-events-auto"
+              aria-label="Next slide"
             >
               <ArrowRight className="size-5" />
             </Button>
           </div>
         </div>
       </div>
-      <div className="container">
+
+      <div className="container mt-12 md:mt-16">
         <Carousel
           setApi={setCarouselApi}
           opts={{
@@ -182,6 +190,7 @@ const CaseStudies6 = (props: Props) => {
               !canScrollPrev && "opacity-0",
             )}
           />
+
           <div
             aria-hidden
             className={cn(
@@ -189,29 +198,47 @@ const CaseStudies6 = (props: Props) => {
               !canScrollNext && "opacity-0",
             )}
           />
+
           <CarouselContent className="-ml-5">
             {items.map((item) => (
               <CarouselItem
                 key={item.id}
                 className="max-w-[320px] pl-5 lg:max-w-[360px]"
               >
-                <a href={item.href} className="group rounded-xl">
-                  <div className="group relative h-full min-h-108 max-w-full overflow-hidden rounded-xl md:aspect-5/4 lg:aspect-video">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                <a
+                  href={item.href}
+                  className="group block rounded-xl"
+                >
+                  <div className="relative h-full min-h-108 max-w-full overflow-hidden rounded-xl md:aspect-5/4 lg:aspect-video">
+
+                    <video
+                      src={item.video}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                      className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 h-full bg-linear-to-t from-black/80 via-black/28 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
-                      <div className="mb-3 flex h-9 items-center pt-4 md:mb-4 md:pt-4 lg:pt-4">
+
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/28 to-transparent" />
+
+                    <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-start p-6 text-white md:p-8">
+                      <div className="mb-3 flex h-9 items-center md:mb-4">
                         <img
                           src={item.logo}
                           alt={item.logoAlt ?? ""}
                           className="max-h-8 w-auto max-w-[160px] object-contain object-left"
                         />
                       </div>
-                      <div className="text-xl font-semibold">{item.title}</div>
+
+                      <div className="text-xl font-semibold">
+                        {item.title}
+                      </div>
+
+                      <p className="mt-3 line-clamp-2 text-sm text-white/70">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 </a>
@@ -219,13 +246,16 @@ const CaseStudies6 = (props: Props) => {
             ))}
           </CarouselContent>
         </Carousel>
+
         <div className="mt-8 flex justify-center gap-2">
           {items.map((_, index) => (
             <button
               key={index}
               type="button"
               className={`h-2 w-2 rounded-full transition-colors ${
-                currentSlide === index ? "bg-primary" : "bg-primary/20"
+                currentSlide === index
+                  ? "bg-primary"
+                  : "bg-primary/20"
               }`}
               onClick={() => carouselApi?.scrollTo(index)}
               aria-label={`Go to slide ${index + 1}`}
@@ -237,4 +267,4 @@ const CaseStudies6 = (props: Props) => {
   );
 };
 
-export { CaseStudies6 };
+export { CaseStudies };

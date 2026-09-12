@@ -1,12 +1,23 @@
 import { CircleArrowOutUpRight } from "lucide-react";
 import React from "react";
+import { features } from "@/components/features";
+import { branches } from "@/shadcnblocks-Blocks/cta/cta3";
 
 const NAVIGATION = [
   { label: "Home", href: "#" },
-  { label: "Collection", href: "#" },
-  { label: "Projects", href: "#" },
-  { label: "Pricing", href: "#" },
-  { label: "Login", href: "#" },
+  {
+    label: "Layanan",
+    href: "#layanan",
+    subItems: features.map(({ id, title }) => ({ id, label: title })),
+  },
+  {
+    label: "Cabang",
+    href: "#cabang",
+    subItems: branches.map(({ id, title }) => ({ id, label: title })),
+  },
+  { label: "Kontak", href: "#cabang" },
+  { label: "Blog", href: "#" },
+  { label: "Galeri", href: "#" },
 ];
 
 const SOCIAL_LINKS = [
@@ -49,6 +60,20 @@ const Footer = () => {
                   >
                     {item.label}
                   </a>
+                  {item.subItems && (
+                    <ul className="mt-1 ml-3 space-y-1 border-l pl-3">
+                      {item.subItems.map((subItem) => (
+                        <li key={subItem.id}>
+                          <a
+                            href={`#${subItem.id}`}
+                            className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
+                          >
+                            {subItem.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>

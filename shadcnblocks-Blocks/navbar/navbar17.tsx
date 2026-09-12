@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, Moon, Sun, X } from "lucide-react";
+import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import React, {
   useEffect,
   useRef,
@@ -11,6 +11,8 @@ import React, {
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "next-themes";
+import { features } from "@/components/features";
+import { branches } from "@/shadcnblocks-Blocks/cta/cta3";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -25,19 +27,21 @@ import {
 
 const NAV_LOGO = {
   url: "https://www.shadcnblocks.com",
-  src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
-  alt: "logo",
-  title: "Shadcnblocks.com",
+  src: "/logo.png",
+  alt: "Glossy Auto Group",
 };
 const NAV_ITEMS = [
   { name: "Home", link: "#" },
-  { name: "About", link: "#" },
-  { name: "Pricing", link: "#" },
-  { name: "Contact", link: "#" },
+  { name: "Layanan", link: "#layanan", subItems: features },
+  { name: "Cabang", link: "#cabang", subItems: branches },
+  { name: "Kontak", link: "#" },
+  { name: "Blog", link: "#" },
+  { name: "Galeri", link: "#" },
 ];
 
 const Navbar17 = () => {
   const [activeItem, setActiveItem] = useState(NAV_ITEMS[0].name);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const indicatorRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLUListElement>(null);
@@ -63,35 +67,80 @@ const Navbar17 = () => {
   }, [activeItem]);
 
   return (
-    <section className="py-4">
+    <section className="py-2">
       <nav className="container flex items-center justify-between">
         {/* Left WordMark */}
         <a href={NAV_LOGO.url} className="flex items-center gap-2">
-          <img src={NAV_LOGO.src} className="max-h-8 w-8" alt={NAV_LOGO.alt} />
-          <span className="text-lg font-semibold tracking-tighter">
-            {NAV_LOGO.title}
-          </span>
+          <img src={NAV_LOGO.src} className="h-6 w-auto object-contain" alt={NAV_LOGO.alt} />
         </a>
 
         <NavigationMenu className="hidden lg:block">
           <NavigationMenuList
             ref={menuRef}
-            className="rounded-4xl flex items-center gap-6 px-8 py-3"
+            className="rounded-4xl flex items-center gap-6 px-8 py-1"
           >
             {NAV_ITEMS.map((item) => (
               <React.Fragment key={item.name}>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    data-nav-item={item.name}
-                    onClick={() => setActiveItem(item.name)}
-                    className={`relative cursor-pointer text-sm font-medium hover:bg-transparent ${
-                      activeItem === item.name
-                        ? "text-foreground"
-                        : "text-muted-foreground"
-                    }`}
-                  >
-                    {item.name}
-                  </NavigationMenuLink>
+                <NavigationMenuItem className="group relative">
+                  {item.subItems ? (
+                    <button
+                      type="button"
+                      data-nav-item={item.name}
+                      aria-expanded={openDropdown === item.name}
+                      onClick={() => {
+                        setActiveItem(item.name);
+                        setOpenDropdown(
+                          openDropdown === item.name ? null : item.name,
+                        );
+                      }}
+                      className={`text-pretty text-lg font-semibold lg:max-w-2xl relative flex cursor-pointer items-center gap-1 hover:bg-transparent ${
+                        activeItem === item.name
+                          ? "text-foreground"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {item.name}
+                      <ChevronDown
+                        aria-hidden="true"
+                        className={`size-4 transition-transform ${
+                          openDropdown === item.name ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  ) : (
+                    <NavigationMenuLink
+                      data-nav-item={item.name}
+                      href={item.link}
+                      onClick={() => setActiveItem(item.name)}
+                      className={`text-pretty text-lg font-semibold lg:max-w-2xl relative cursor-pointer hover:bg-transparent ${
+                        activeItem === item.name
+                          ? "text-foreground"
+                          : "text-muted-foreground"
+                      }`}
+                    >
+                      {item.name}
+                    </NavigationMenuLink>
+                  )}
+                  {item.subItems && (
+                    <div
+                      className={`bg-background absolute top-full left-1/2 z-50 mt-2 w-64 -translate-x-1/2 rounded-md border p-2 shadow-md transition-all ${
+                        openDropdown === item.name
+                          ? "visible opacity-100"
+                          : "invisible opacity-0 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100"
+                      }`}
+                    >
+                      {item.subItems.map((subItem) => (
+                        <a
+                          key={subItem.id}
+                          href={`#${subItem.id}`}
+                          onClick={() => setOpenDropdown(null)}
+                          className="hover:bg-accent block rounded-sm px-3 py-2 text-sm font-medium"
+                        >
+                          {subItem.title}
+                        </a>
+                      ))}
+                    </div>
+                  )}
                 </NavigationMenuItem>
               </React.Fragment>
             ))}
@@ -176,6 +225,7 @@ const MobileNav = ({
   setActiveItem: (item: string) => void;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
 
   return (
     <div className="block flex h-full items-center lg:hidden">
@@ -193,17 +243,60 @@ const MobileNav = ({
           <ul className="bg-background text-foreground w-full py-4">
             {NAV_ITEMS.map((navItem, idx) => (
               <li key={idx}>
-                <a
-                  href={navItem.link}
-                  onClick={() => setActiveItem(navItem.name)}
-                  className={`text-foreground flex items-center border-l-[3px] px-6 py-4 text-sm font-medium transition-all duration-75 ${
-                    activeItem === navItem.name
-                      ? "border-foreground text-foreground"
-                      : "text-muted-foreground hover:text-foreground border-transparent"
-                  }`}
-                >
-                  {navItem.name}
-                </a>
+                {navItem.subItems ? (
+                  <button
+                    type="button"
+                    aria-expanded={openSubmenu === navItem.name}
+                    onClick={() => {
+                      setActiveItem(navItem.name);
+                      setOpenSubmenu(
+                        openSubmenu === navItem.name ? null : navItem.name,
+                      );
+                    }}
+                    className={`text-foreground flex w-full items-center justify-between border-l-[3px] px-6 py-4 text-pretty text-lg font-semibold lg:max-w-2xl relative cursor-pointer hover:bg-transparent transition-all duration-75 ${
+                      activeItem === navItem.name
+                        ? "border-foreground text-foreground"
+                        : "text-muted-foreground hover:text-foreground border-transparent"
+                    }`}
+                  >
+                    {navItem.name}
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={`size-5 transition-transform ${
+                        openSubmenu === navItem.name ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                ) : (
+                  <a
+                    href={navItem.link}
+                    onClick={() => setActiveItem(navItem.name)}
+                    className={`text-foreground flex items-center border-l-[3px] px-6 py-4 text-pretty text-lg font-semibold lg:max-w-2xl relative cursor-pointer hover:bg-transparent transition-all duration-75 ${
+                      activeItem === navItem.name
+                        ? "border-foreground text-foreground"
+                        : "text-muted-foreground hover:text-foreground border-transparent"
+                    }`}
+                  >
+                    {navItem.name}
+                  </a>
+                )}
+                {navItem.subItems && (
+                  <div
+                    className={`border-muted ml-6 border-l pl-3 ${
+                      openSubmenu === navItem.name ? "block" : "hidden"
+                    }`}
+                  >
+                    {navItem.subItems.map((subItem) => (
+                      <a
+                        key={subItem.id}
+                        href={`#${subItem.id}`}
+                        className="text-muted-foreground hover:text-foreground block px-3 py-2 text-sm font-medium"
+                      >
+                        {subItem.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </li>
             ))}
             <li className="flex flex-col px-7 py-2">

@@ -2,9 +2,7 @@ import { Anton, Geist, Geist_Mono } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
-import { Navbar5 } from "@/shadcnblocks-Blocks/navbar/navbar5";
-import { Navbar17 } from "@/shadcnblocks-Blocks/navbar/navbar17";
+import { SiteNavbar } from "@/components/site-navbar"
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 
@@ -28,11 +26,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable, anton.variable)}
+      className={`${fontMono.variable} ${geist.variable} ${anton.variable} font-sans antialiased`}
     >
       <body>
         <ThemeProvider>
-          <Navbar17 />
+          <SiteNavbar />
           {children}
         </ThemeProvider>
       </body>

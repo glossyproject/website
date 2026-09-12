@@ -50,14 +50,15 @@ export default function TestimonialSection() {
       aria-labelledby="testimonial-title"
       className="bg-white px-8 py-16 md:px-12 md:py-24"
     >
-      <div className="mx-auto max-w-7xl">
-        <h2
-          id="testimonial-title"
-          className={`${heading.className} mb-10 text-center text-3xl uppercase not-italic leading-tight text-black md:mb-14 md:text-5xl`}
-        >
-          Testimoni{" "}
-          <span className="text-yellow-500">Customer</span>
-        </h2>
+      <div className="container flex flex-col items-center gap-16 lg:px-16">
+        <div className="text-center">
+          <h1 className="mb-3 text-pretty text-3xl font-semibold md:mb-4 md:text-4xl lg:mb-6 lg:max-w-3xl lg:text-5xl">
+            Our Trusted Products
+          </h1>
+           <p className="mx-auto max-w-3xl text-balance text-xl font-medium">
+            Apa kata mereka tentang layanan kami
+          </p>
+        </div>
 
         <Carousel
           opts={{ align: "start", loop: true }}

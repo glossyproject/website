@@ -22,7 +22,7 @@ const FOOTER_LINKS = [
 
 const Footer30 = () => {
   return (
-    <section className="py-32">
+    <section className="pt-32 pb-0">
       <div className="container">
         <div className="gap-15 flex flex-col justify-between lg:flex-row">
           <div className="flex flex-col gap-2">
