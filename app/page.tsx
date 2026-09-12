@@ -4,7 +4,6 @@ import TestimonialSection from "@/components/testimonial-section"
 import { Logo } from "@/components/logo"
 import { Features } from "@/components/features"
 import { CaseStudies } from "@/components/case-studies"
-import { Cta } from "@/components/cta"
 import { Footer } from "@/components/footer"
 import { Cta3 } from "@/shadcnblocks-Blocks/cta/cta3"
 

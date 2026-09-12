@@ -43,8 +43,7 @@ const tiktokPosts = [
     videoId: "7656303579967327495",
   },
 ];
-
-export function SocialMediaSection() {
+b export function mnSocialMediaSection() {
   useEffect(() => {
     window.instgrm?.Embeds.process();
     window.tiktok?.embed?.lib?.render();

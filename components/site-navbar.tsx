@@ -26,29 +26,29 @@ type MenuItem = {
 }
 
 const serviceItems: DropdownItem[] = [
-  { name: "Repaint Mobil", description: "Pengecatan ulang dan restorasi warna kendaraan.", href: "#feature-3" },
-  { name: "Body Repair", description: "Perbaikan body kendaraan dan kerusakan panel.", href: "#feature-1" },
-  { name: "Detailing", description: "Perawatan detail interior dan eksterior.", href: "#feature-5" },
-  { name: "Coating", description: "Perlindungan cat dan peningkatan kilap kendaraan.", href: "#feature-2" },
-  { name: "Variasi Mobil", description: "Upgrade tampilan dan aksesoris kendaraan.", href: "#layanan" },
+  { name: "Repaint Mobil", description: "Pengecatan ulang dan restorasi warna kendaraan.", href: "/layanan/repaint-mobil" },
+  { name: "Body Repair", description: "Perbaikan body kendaraan dan kerusakan panel.", href: "/layanan/body-repair" },
+  { name: "Detailing", description: "Perawatan detail interior dan eksterior.", href: "/layanan/detailing-mobil" },
+  { name: "Coating", description: "Perlindungan cat dan peningkatan kilap kendaraan.", href: "/layanan/coating-mobil" },
+  { name: "Variasi Mobil", description: "Upgrade tampilan dan aksesoris kendaraan.", href: "/layanan/variasi-mobil" },
 ]
 
 const branchItems: DropdownItem[] = [
-  { name: "Pangkalan Bun", description: "Glossy Auto Pangkalan Bun", href: "#branch-pangkalanbun" },
-  { name: "Sampit", description: "Glossy Auto Sampit", href: "#branch-sampit" },
+  { name: "Pangkalan Bun", description: "Glossy Auto Pangkalan Bun", href: "/cabang/pangkalan-bun" },
+  { name: "Sampit", description: "Glossy Auto Sampit", href: "/cabang/sampit" },
 ]
 
 const menuItems: MenuItem[] = [
-  { name: "Home", href: "#hero" },
-  { name: "Layanan", href: "#layanan", items: serviceItems },
-  { name: "Cabang", href: "#cabang", items: branchItems },
-  { name: "Kontak", href: "#cabang" },
-  { name: "Blog", href: "#" },
-  { name: "Galeri", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "Layanan", href: "/layanan", items: serviceItems },
+  { name: "Cabang", href: "/cabang", items: branchItems },
+  { name: "Kontak", href: "/kontak" },
+  { name: "Blog", href: "/blog" },
+  { name: "Galeri", href: "/galeri" },
 ]
 
 const logo = (
-  <Link href="#hero" className="relative z-20 mr-4 flex items-center px-2 py-1">
+  <Link href="/" className="relative z-20 mr-4 flex items-center px-2 py-1">
     <img src="/logo.png" alt="Glossy Auto Group" className="h-7 w-auto object-contain" />
   </Link>
 )
@@ -178,7 +178,7 @@ function MobileMenu({ onCloseAction }: { onCloseAction: () => void }) {
           )}
         </div>
       ))}
-      <Link href="#cabang" onClick={onCloseAction} className="mt-2 flex h-10 items-center justify-center rounded-md bg-neutral-900 px-4 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">
+      <Link href="/kontak" onClick={onCloseAction} className="mt-2 flex h-10 items-center justify-center rounded-md bg-neutral-900 px-4 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">
         Hubungi Kami
       </Link>
     </div>
@@ -193,7 +193,7 @@ export function SiteNavbar() {
       <NavBody>
         {logo}
         <DesktopMenu />
-        <Link href="#cabang" className="relative z-20 hidden rounded-md bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 md:block dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">
+        <Link href="/kontak" className="relative z-20 hidden rounded-md bg-neutral-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-neutral-700 md:block dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">
           Hubungi Kami
         </Link>
       </NavBody>

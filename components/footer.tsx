@@ -1,23 +1,22 @@
 import { CircleArrowOutUpRight } from "lucide-react";
-import React from "react";
-import { features } from "@/components/features";
-import { branches } from "@/shadcnblocks-Blocks/cta/cta3";
+import Link from "next/link";
+import { branches, services } from "@/lib/seo-data";
 
 const NAVIGATION = [
-  { label: "Home", href: "#" },
+  { label: "Home", href: "/" },
   {
     label: "Layanan",
-    href: "#layanan",
-    subItems: features.map(({ id, title }) => ({ id, label: title })),
+    href: "/layanan",
+    subItems: services.map(({ slug, name }) => ({ href: `/layanan/${slug}`, label: name })),
   },
   {
     label: "Cabang",
-    href: "#cabang",
-    subItems: branches.map(({ id, title }) => ({ id, label: title })),
+    href: "/cabang",
+    subItems: branches.map(({ slug, name }) => ({ href: `/cabang/${slug}`, label: name })),
   },
-  { label: "Kontak", href: "#cabang" },
-  { label: "Blog", href: "#" },
-  { label: "Galeri", href: "#" },
+  { label: "Kontak", href: "/kontak" },
+  { label: "Blog", href: "/blog" },
+  { label: "Galeri", href: "/galeri" },
 ];
 
 const SOCIAL_LINKS = [
@@ -54,22 +53,22 @@ const Footer = () => {
               </li>
               {NAVIGATION.map((item) => (
                 <li key={item.label}>
-                  <a
+                  <Link
                     href={item.href}
                     className="text-base font-semibold tracking-tight sm:text-lg lg:text-xl"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                   {item.subItems && (
                     <ul className="mt-1 ml-3 space-y-1 border-l pl-3">
                       {item.subItems.map((subItem) => (
-                        <li key={subItem.id}>
-                          <a
-                            href={`#${subItem.id}`}
+                        <li key={subItem.href}>
+                          <Link
+                            href={subItem.href}
                             className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
                           >
                             {subItem.label}
-                          </a>
+                          </Link>
                         </li>
                       ))}
                     </ul>
